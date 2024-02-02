@@ -1,0 +1,24 @@
+package com.example._Rest_API_App.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example._Rest_API_App.student.Student;
+
+@RestController
+public class StudentController {
+
+	
+	@GetMapping("wishes")
+	public String say() {
+		return "Good Morning";
+	}
+	
+	
+	public Student getdetails() {
+		
+		Student s=new Student(101,"KARTHIK","BANGALORE");
+		
+		return s;
+	}
+}

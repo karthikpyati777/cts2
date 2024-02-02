@@ -1,0 +1,53 @@
+package com.example.jwtclientapp.service;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.jwtclientapp.request.JwtRequest;
+import com.example.jwtclientapp.response.JwtResponse;
+
+@Service
+public class StudentService {
+
+	private static final String Auth_ENDPOINT="http://localhost:8080/auth/login";
+	private static final String STUDENTNAME_ENDPOINT="http://localhost:8080/studentname";
+	public String invokeSecuredRestApi() {
+		
+		String response=null;
+		RestTemplate rt=new RestTemplate();
+		JwtRequest request=new JwtRequest("karthik@gmail.com","karthik");
+		ResponseEntity<JwtResponse> postForEntity = rt.postForEntity(Auth_ENDPOINT, request, JwtResponse.class);
+		
+		JwtResponse body = postForEntity.getBody();
+		
+		System.out.println(body);
+		
+		//1st we got the jwt token
+		String token = body.getToken();
+		
+		//we need to send the token in the header for that we will use 'HttpHeaders'
+		
+		HttpHeaders headers=new HttpHeaders();
+		
+		headers.add("Authorization", "Bearer "+token);
+		
+		//HttpEntity is used to the token is sent in the request body as we need to send token in headeres
+		
+		HttpEntity entity=new HttpEntity<>(headers); //we need to pass the headers object
+		
+		//we need to pass this entity in the request
+		
+		//by using exchange method we can send the request
+		ResponseEntity<String> exchange = rt.exchange(STUDENTNAME_ENDPOINT, HttpMethod.GET, entity, String.class);
+		String body2 = exchange.getBody();
+		      
+		System.out.println(body2);
+		
+		return response;
+		
+	}
+}

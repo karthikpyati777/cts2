@@ -1,0 +1,12 @@
+package com.example.springbootvehicle.service;
+
+import com.example.springbootvehicle.entity.Vehicle;
+
+public interface VehicleService {
+
+	
+	Vehicle createVehicle(Vehicle vehicle);
+	
+	
+	
+}

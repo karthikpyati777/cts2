@@ -1,0 +1,5 @@
+package com.example.springbootvehicle.service;
+
+public interface VehicleService {
+
+}

@@ -1,0 +1,23 @@
+package com.example.springbootvehicle.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.springbootvehicle.entity.Vehicle;
+import com.example.springbootvehicle.entity.VehicleRepo;
+
+@Service
+public class VehicleServiceImpl implements VehicleService {
+
+	@Autowired
+	private VehicleRepo repo;
+
+	@Override
+	public Vehicle createVehicle(Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		Vehicle save = repo.save(vehicle);
+		return save;
+	}
+	
+	
+}

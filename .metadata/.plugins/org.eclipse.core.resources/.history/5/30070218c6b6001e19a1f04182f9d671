@@ -1,0 +1,49 @@
+package com.example.springbootvehicle.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.springbootvehicle.entity.Vehicle;
+import com.example.springbootvehicle.service.VehicleService;
+
+@RestController
+@RequestMapping("api/vehicle")
+public class VehicleController {
+
+	@Autowired
+	private VehicleService service;
+	
+	@PostMapping("/")
+	public ResponseEntity<Vehicle> saveVehicle(@RequestBody Vehicle vehicle){
+		
+		     Vehicle createVehicle = service.createVehicle(vehicle);
+		return new ResponseEntity<Vehicle>(createVehicle,HttpStatus.CREATED);
+		
+	}
+	
+	@GetMapping("allVehicles")
+	public ResponseEntity<List<Vehicle>> allVehicles(){
+		
+		List<Vehicle> vehicles = service.vehicles();
+		
+		return new ResponseEntity<List<Vehicle>>(vehicles, HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("vehicle/{id}")
+	public ResponseEntity<Vehicle> findVehicle(@PathVariable Long id){
+		
+		Vehicle vehicleById = service.vehicleById(id);
+		
+		return new ResponseEntity<Vehicle>(vehicleById,HttpStatus.OK);
+	}
+}

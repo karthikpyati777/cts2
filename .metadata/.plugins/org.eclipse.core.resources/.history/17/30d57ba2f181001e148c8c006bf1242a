@@ -1,0 +1,28 @@
+package com.example.RestApiException.globalexception;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.example.RestApiException.binding.ResponseBinding;
+import com.example.RestApiException.userdefinedexception.ProductNotFoundException;
+
+@RestControllerAdvice // Is used to handle Exception globally like it can handle excetion in any class of our application
+public class GlobalExceptionhandling {
+
+	@ExceptionHandler(value = Exception.class)
+	public ResponseEntity<ResponseBinding> handleException(Exception e){
+		ResponseBinding r=new ResponseBinding("Ex007",e.getMessage(),LocalDateTime.now());
+		return new ResponseEntity<>(r, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(value = ProductNotFoundException.class)
+	public ResponseEntity<ResponseBinding> handleException(ProductNotFoundException e){
+		ResponseBinding r=new ResponseBinding("Ex010",e.getMessage(),LocalDateTime.now());
+		return new ResponseEntity<>(r, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\2107257\Downloads\spring-boot-vehicle"/>
+			<item value="C:\Users\2107257\Downloads\spring-boot-curd-operation"/>
+			<item value="C:\Users\2107257\Downloads\jwt-client-app"/>
+			<item value="C:\Users\2107257\Downloads\jwt-process"/>
+			<item value="C:\Users\2107257\Downloads\spring-boot-jwt-token"/>
+			<item value="C:\Users\2107257\spring-boot-mvc-projects\spring-demo-examples"/>
+			<item value="C:\Users\2107257\Downloads\spring default securityapp"/>
+			<item value="C:\Users\2107257\Downloads\circuit-breaker"/>
+			<item value="C:\Users\2107257\Downloads\circuit-breaker-resilience-aop"/>
+			<item value="C:\Users\2107257\Downloads\E-StockMarketApplication 4 1"/>
+			<item value="C:\Users\2107257\Downloads\kafka-consumer"/>
+			<item value="C:\Users\2107257\Downloads\kafka-producer"/>
+			<item value="C:\Users\2107257\Downloads\redis-cache"/>
+			<item value="C:\Users\2107257\Downloads\Config_Client_App"/>
+			<item value="C:\Users\2107257\Downloads\Config_Server_App"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\2107257\Downloads\spring-mvc-projects\spring-mvc-projects\src\main\resources\templates\index.html"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

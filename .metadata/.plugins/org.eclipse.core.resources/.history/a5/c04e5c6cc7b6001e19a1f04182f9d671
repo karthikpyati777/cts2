@@ -1,0 +1,48 @@
+package com.example.springbootvehicle.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.springbootvehicle.entity.Vehicle;
+import com.example.springbootvehicle.entity.VehicleRepo;
+
+@Service
+public class VehicleServiceImpl implements VehicleService {
+
+	@Autowired
+	private VehicleRepo repo;
+
+	@Override
+	public Vehicle createVehicle(Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		
+		return repo.save(vehicle);
+	}
+
+	@Override
+	public List<Vehicle> vehicles() {
+		// TODO Auto-generated method stub
+		List<Vehicle> findAll = repo.findAll();
+		return findAll;
+	}
+
+	@Override
+	public String vehicleById(Long vehicleId) {
+		// TODO Auto-generated method stub
+		Optional<Vehicle> findById = repo.findById(vehicleId);
+		
+		if(findById.isPresent()) {
+			System.out.println(findById.get());
+		}
+		
+		
+		return "Given Vehicle Id is not present";
+		
+		
+	}
+	
+	
+}

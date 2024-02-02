@@ -1,0 +1,6 @@
+package com.example.springdemoexamples.model;
+
+@Data
+public class Student {
+
+}

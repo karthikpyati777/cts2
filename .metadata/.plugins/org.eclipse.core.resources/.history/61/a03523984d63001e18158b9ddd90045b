@@ -1,0 +1,20 @@
+package com.example.mvc.projects.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class QuotoController {
+	
+	
+	@GetMapping("quote")
+	public String writeSomeQuote(Model model) {
+		
+		model.addAttribute("msg", "when the person struggle his life that day become successful person");
+//		String s=null;
+//		s.length();
+		return "info";
+	}
+
+}

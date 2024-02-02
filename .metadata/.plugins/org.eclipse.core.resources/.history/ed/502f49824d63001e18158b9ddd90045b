@@ -1,0 +1,22 @@
+package com.example.mvc.projects.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class StudentController {
+	
+	@GetMapping("student")
+	public String studentName(Model model) {
+		
+		
+		model.addAttribute("msg", "Karthik is a student");
+		
+		
+		int i=10/0;
+		
+		 return "info";
+	}
+
+}

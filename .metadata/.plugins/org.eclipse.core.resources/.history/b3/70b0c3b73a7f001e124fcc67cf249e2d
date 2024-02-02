@@ -1,0 +1,83 @@
+package com.example.MakeMyTripappusingwebClient.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.MakeMyTripappusingwebClient.RequestBinding.Passanger;
+import com.example.MakeMyTripappusingwebClient.ResponseBinding.Ticket;
+import com.example.MakeMyTripappusingwebClient.service.TicketService;
+
+import reactor.core.publisher.Mono;
+
+@Controller
+public class TicketController {
+
+	@Autowired
+	private TicketService service;
+
+	@GetMapping("/")
+	public String loadForm(Model model) {
+
+		model.addAttribute("passanger", new Passanger());
+
+		return "index";
+
+	}
+
+	@GetMapping("/load-search-page")
+	public String search(Model model) {
+		model.addAttribute("ticket", new Ticket());
+		return "search";
+	}
+
+	@PostMapping("ticket")
+	public String bookTicket(Passanger passanger, Model model) {
+
+		Mono<Ticket> ticket = service.bookTicket(passanger);
+
+		model.addAttribute("ticket", ticket);
+
+		return "view-ticket";
+	}
+
+//	@GetMapping("search-ticket")
+//	public String searchTicket(@RequestParam("ticketnum") Integer ticketnum, Model model) {
+//
+//		System.out.println("Ticket Number :: " + ticketnum);
+//		
+//		Mono<Ticket> ticket = service.getTicket(ticketnum);
+//
+//		model.addAttribute("ticket", ticket);
+//
+//		return "search";
+//
+//	}
+	
+	@GetMapping("search-ticket")
+	public String searchTicket(@RequestParam("ticketnum") Integer ticketnum,Model model) {
+		
+		System.out.println("Ticket Number :: "+ticketnum);
+		Mono<Ticket> ticket = service.getTicketById(ticketnum);
+		
+		model.addAttribute("ticket", ticket);
+		
+		return "search";
+
+	}
+	
+
+	@GetMapping("/allTickets")
+	public String getTickets(Model model) {
+
+		Mono<Ticket[]> tickets = service.getallTickets();
+		model.addAttribute("info", tickets);
+		return "list-of-tickets";
+
+	}
+
+}

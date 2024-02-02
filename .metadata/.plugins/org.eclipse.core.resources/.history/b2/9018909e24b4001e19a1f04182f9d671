@@ -1,0 +1,23 @@
+package com.example.springbootcurdoperation.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.springbootcurdoperation.entity.Student;
+import com.example.springbootcurdoperation.repository.StudentRepo;
+
+@Service
+public class StudentService {
+
+	@Autowired
+	private StudentRepo repo;
+	
+	
+	public void saveByOneFile() {
+		
+		Student s=new Student();
+		s.setName("karthik");
+		s.setCity("gangavathi");
+		
+	}
+}

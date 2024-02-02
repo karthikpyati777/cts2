@@ -1,0 +1,12 @@
+package com.example._Rest_API_App.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class StudentController {
+
+	
+	@GetMapping("wishes")
+	public String say() {
+		return "Good Morning";
+	}
+}
